@@ -32,6 +32,7 @@ export class EditSobreMiComponent {
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
     this.persona.img = this.imageService.url
+    console.log(this.persona.img)
     this.personaService.update(id, this.persona).subscribe(
       data => {
         this.router.navigate(['']);

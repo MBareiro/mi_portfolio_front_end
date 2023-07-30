@@ -33,6 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideStorage,getStorage} from '@angular/fire/storage';
 import { environment } from '../environments/environment';
+import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { environment } from '../environments/environment';
     EditSobreMiComponent,
     EditProjectComponent,
     NewProjectComponent,
-    LoginComponent    
+    LoginComponent,
+    ContactoComponent    
   ],
   imports: [
     BrowserModule,

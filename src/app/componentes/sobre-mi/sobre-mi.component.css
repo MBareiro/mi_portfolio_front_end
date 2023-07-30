@@ -17,9 +17,10 @@ h5{
 }*/
 .row{
   padding: 20px;
+  background-color: rgb(80, 87, 90);
+  color: white;
 }
 div{
-  background-color:  #9b9c9c;
   text-align: center;
 }
 /*Estilo de la foto de perfil*/
@@ -30,7 +31,7 @@ div{
       border-radius: 100%;
       box-shadow: 3px 3px 3px grey;
       left: 3%;
-      top:600px;
+      top:590px;
   }
 }
 @media (max-width: 575px){

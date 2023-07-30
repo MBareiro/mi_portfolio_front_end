@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/models/skill';
 import { SkillService } from 'src/app/servicios/skill.service';
+
+import { ImageService } from 'src/app/servicios/image.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +18,9 @@ export class EditSkillComponent implements OnInit {
   constructor(
     private skillS: SkillService,
     private activatedRouter: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    
+    public imageService: ImageService) { }
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
@@ -28,6 +32,12 @@ export class EditSkillComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+  }
+  uploadImage($event:any){
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "perfil_" + id;
+    this.imageService.uploadImage($event, name);
+   
   }
 
   onUpdate(){
@@ -46,7 +56,7 @@ export class EditSkillComponent implements OnInit {
       });
       return;
     }
-
+    this.skill.img = this.imageService.url;
     const id = this.activatedRouter.snapshot.params['id'];
     this.skillS.update(id, this.skill).subscribe(
       data => {
@@ -78,6 +88,6 @@ export class EditSkillComponent implements OnInit {
   }
 
   isFormValid(): boolean {
-    return !!this.skill?.nombre && !!this.skill?.porcentaje;
+    return !!this.skill?.nombre;
   }
 }

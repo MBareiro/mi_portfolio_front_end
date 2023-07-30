@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/models/skill';
 import { SkillService } from 'src/app/servicios/skill.service';
+
+import { ImageService } from 'src/app/servicios/image.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-new-skill',
@@ -10,13 +12,23 @@ import Swal from 'sweetalert2';
 })
 export class NewSkillComponent implements OnInit {
   nombre: string;
-  porcentaje: number;
+  img: string;
   formSubmitted = false;
 
-  constructor(private skillS: SkillService, private router: Router) {}
+  constructor(private skillS: SkillService, 
+    private router: Router,
+    private activatedRouter: ActivatedRoute,
+    public imageService: ImageService) {}
 
   ngOnInit(): void {}
 
+  uploadImage($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    console.log(id);
+    const name = 'perfil_' + id;
+    console.log(name);
+    this.imageService.uploadImage($event, name);
+  }
   onCreate(): void {
     this.formSubmitted = true;
 
@@ -33,8 +45,8 @@ export class NewSkillComponent implements OnInit {
       });
       return;
     }
-
-    const skill = new Skill(this.nombre, this.porcentaje);
+    alert(this.imageService.url)
+    const skill = new Skill(this.nombre, this.imageService.url);
     this.skillS.save(skill).subscribe(
       data => {
         Swal.fire({
@@ -65,6 +77,6 @@ export class NewSkillComponent implements OnInit {
     );
   }
   isFormValid(): boolean {
-    return !!this.nombre && !!this.porcentaje;
+    return !!this.nombre;
   }
 }

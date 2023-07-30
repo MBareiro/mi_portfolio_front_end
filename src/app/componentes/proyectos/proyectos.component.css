@@ -1,5 +1,19 @@
 /*@import "~bootstrap-icons/font/bootstrap-icons.css";*/
 
 section{
-    background-color:  #9b9c9c;
+    background-color:  rgb(80, 87, 90)
 }
+
+.card{
+  background-color: #181a1b;
+}
+.card-hover:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .card-clickable {
+    transition: cursor 0.2s ease;
+  }
+  

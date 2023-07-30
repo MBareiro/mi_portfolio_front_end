@@ -19,9 +19,14 @@
         <div *ngIf="formSubmitted && !nombre" class="text-danger">El nombre es requerido.</div>
       </div>
 
-      <div class="form-group">
+     <!--  <div class="form-group">
         <input type="number" id="porcentaje" name="porcentaje" class="form-control form-control-lg" [(ngModel)]="porcentaje" required placeholder="Porcentaje" min="1" max="100"  />
         <div *ngIf="formSubmitted && !porcentaje" class="text-danger">El porcentaje es requerido.</div>
+      </div> -->
+
+      <div class="form-group">
+        <label for="img">Imagen</label>
+        <input type="file" class="form-control" id="img" name="img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png" required>
       </div>
 
       <button class="btn btn-primary btn-block" type="submit">Guardar</button>

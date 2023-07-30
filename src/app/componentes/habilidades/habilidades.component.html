@@ -1,12 +1,14 @@
 <section id="educacion" class="educacion">
   <div class="container mt-5">
     <div class="row">
-
-      <div class="row">
-        <div class="col-md-3">
-          <h2>Habilidades</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+          <h1>Habilidades</h1>
         </div>
-        <div class="col-md-2">
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-2 text-center mb-3">
           <button type="button" routerLink="/newskill" class="btn btn-success" *ngIf="isLogged">
             Agregar
           </button>
@@ -14,13 +16,30 @@
       </div>
 
       <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let skill of skill">
-        <circle-progress [percent]="skill.porcentaje" [radius]="90" [imageSrc]="''" [title]="skill.nombre"
-          [titleColor]="'#212F3C'" [showTitle]="true" [showImage]="false" [imageHeight]="70" [imageWidth]="70"
-          [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16" [innerStrokeWidth]="2"
-          [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="600">
+        <!-- <circle-progress
+          [radius]="90"
+          [title]="skill.nombre"
+          [titleColor]="'#212F3C'"
+          [showTitle]="true"
+          [showImage]="true"
+          [imageHeight]="60"
+          [imageWidth]="60"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+          [showInnerStroke]="false"
+          [showZeroOuterStroke]="false"
+          [backgroundColor]="'#78C000'"
+        >
+          <i class="fab fa-html5" style="font-size: 50px; color: #212f3c"></i>
         </circle-progress>
-
-        <div>
+        -->
+       <!--  <div>
           <td>
             <button class="btn btn-light" routerLink="/editskill/{{ skill.id }}" *ngIf="isLogged">
               <i class="fas fa-edit"></i>
@@ -31,8 +50,28 @@
               <i class="fas fa-trash-alt"></i>
             </button>
           </td>
+        </div> -->
+
+        <div class="habilidad">
+          <img class="imagen-habilidad" src="{{ skill.img }}" alt="HTML" />
+          <span class="habilidad-descripcion">{{ skill.nombre }}</span>
+          <div class="row">
+            <div class="col"><button class="btn btn-light" routerLink="/editskill/{{ skill.id }}" *ngIf="isLogged">
+              <i class="fas fa-edit"></i>
+            </button></div>
+            <div class="col"><button class="btn btn-danger" (click)="delete(skill.id)" *ngIf="isLogged">
+              <i class="fas fa-trash-alt"></i>
+            </button></div>
+          </div>
+          
+          
         </div>
+
+
       </div>
+
+      
+
     </div>
   </div>
 </section>

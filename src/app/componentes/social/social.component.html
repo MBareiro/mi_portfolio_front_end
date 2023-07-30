@@ -1,17 +1,27 @@
 <ul id="redes" class="list-group list-group-horizontal list-unstyled">
-  <li class="list-group-item">
-    <i class="fa-brands fa-instagram fa-2xl"></i>
-  </li>
-  <li class="list-group-item">
-    <i class="fa-brands fa-facebook fa-2xl"></i>
-  </li>
-  <li class="list-group-item">
-    <i class="fa-brands fa-linkedin fa-2xl"></i>
-  </li>
+
+  <a href="https://www.instagram.com/martin_bareiro7/" target="_blank">
+    <li class="list-group-item">
+      <i class="fa-brands fa-instagram fa-2xl"></i>
+    </li>
+  </a>
+
+  <a href="https://github.com/MBareiro" target="_blank">
+    <li class="list-group-item">
+      <i class="fa-brands fa-github fa-2xl"></i>
+    </li>
+  </a>
+
+  <a href="https://www.linkedin.com/in/martin-bareiro-71941b173" target="_blank">
+    <li class="list-group-item">
+      <i class="fa-brands fa-linkedin fa-2xl"></i>
+    </li>
+  </a>
+
   <li class="list-group-item" *ngIf="!isLogged">
-    <i class="fa-solid fa-user fa-2xl" type="button" (click)="login()" ></i>
+    <i class="fa-solid fa-user fa-2xl" type="button" (click)="login()"></i>
   </li>
   <li class="list-group-item" *ngIf="isLogged">
-    <i class="fa-solid fa-right-from-bracket" type="button" (click)="onLogOut()" ></i>
+    <i class="fa-solid fa-right-from-bracket" type="button" (click)="onLogOut()"></i>
   </li>
 </ul>

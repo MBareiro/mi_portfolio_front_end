@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -18,11 +16,18 @@
 
       <div class="form-group"> <input type="text" id="nombre" name="nombre" class="form-control
         form-control-lg" [(ngModel)]="project.titulo" required placeholder="Nombre" /></div>
-        <div *ngIf="formSubmitted && !project?.titulo" class="text-danger">El título es requerido.</div>
+      <div *ngIf="formSubmitted && !project?.titulo" class="text-danger">El título es requerido.</div>
 
-      <div class="form-group"><input type="porcentaje" id="porcentaje" name="porcentaje" class="form-control form-control-lg"
-        [(ngModel)]="project.descripcion" required placeholder="Porcentaje" /></div>
-        <div *ngIf="formSubmitted && !project?.descripcion" class="text-danger">La descripcion es requerida.</div>
+      <div class="form-group"><input type="porcentaje" id="porcentaje" name="porcentaje"
+          class="form-control form-control-lg" [(ngModel)]="project.descripcion" required placeholder="Porcentaje" />
+      </div>
+      <div *ngIf="formSubmitted && !project?.descripcion" class="text-danger">La descripcion es requerida.</div>
+
+      <div class="form-group">
+        <label for="img">Imagen</label>
+        <input type="file" class="form-control" id="img" name="img" (change)="uploadImage($event)"
+          accept=".jpg, .jpeg, .png" required>
+      </div>
 
       <button class="btn btn-primary btn-block" type="submit">Guardar</button>
     </form>

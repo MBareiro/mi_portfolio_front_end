@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/servicios/project.service';
+import { ImageService } from 'src/app/servicios/image.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-project',
@@ -15,7 +16,8 @@ export class EditProjectComponent {
   constructor(
     private projectS: ProjectService,
     private activatedRouter : ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public imageService: ImageService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,13 @@ export class EditProjectComponent {
          this.router.navigate(['']);
       }
     )
+  }
+
+  uploadImage($event:any){
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "perfil_" + id;
+    this.imageService.uploadImage($event, name);
+    this.project.img = this.imageService.url;
   }
 
   onUpdate(): void{
@@ -48,6 +57,7 @@ export class EditProjectComponent {
     }
 
     const id = this.activatedRouter.snapshot.params['id'];
+    this.project.img = this.imageService.url
     this.projectS.update(id, this.project).subscribe(
       data => {
         Swal.fire({
@@ -76,6 +86,9 @@ export class EditProjectComponent {
       }
     )
   }
+
+  
+
   isFormValid(): boolean {
     return !!this.project?.titulo && !!this.project?.descripcion;
   }
