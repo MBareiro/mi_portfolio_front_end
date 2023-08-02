@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto</title>
+</head>
+
+<body>
+  <div class="login-dark">
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm" novalidate>
+      <h2 class="sr-only">Proyecto</h2>
+      <div class="illustration"><i class="fas fa-folder-open"></i></div>
+
+      <div class="form-group"> <input type="text" id="nombre" name="nombre" class="form-control
+        form-control-lg" [(ngModel)]="titulo" required placeholder="Nombre" /></div>
+      <div *ngIf="formSubmitted && !titulo" class="text-danger">El título es requerido.</div>
+
+      <div class="form-group"><input type="text" id="descripcion" name="descripcion"
+          class="form-control form-control-lg" [(ngModel)]="descripcion" required placeholder="Descripcion" /></div>
+      <div *ngIf="formSubmitted && !descripcion" class="text-danger">La descripcion es requerida.</div>
+
+      <div class="form-group">
+        <label for="img">Imagen</label>
+        <input type="file" class="form-control" id="img" name="img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png" required>
+      </div>
+
+      <button class="btn btn-primary btn-block" type="submit">Guardar</button>
+    </form>
+  </div>
+</body>
+
+</html>

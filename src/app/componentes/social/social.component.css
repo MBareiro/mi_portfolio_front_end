@@ -1,0 +1,11 @@
+i.fa-solid.fa-user.fa-2xl:hover,
+i.fa-brands.fa-facebook.fa-2xl:hover,
+i.fa-brands.fa-linkedin.fa-2xl:hover,
+i.fa-brands.fa-instagram.fa-2xl:hover {
+  color: gray;
+}
+
+.list-group {
+  /*--bs-list-group-bg: transparent;*/
+  --bs-list-group-border-color: transparent;
+}

@@ -1,0 +1,45 @@
+<section id="educacion" class="educacion">
+  <div class="container mt-5">
+                
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <h2>Educación</h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-2 text-center  mb-3">
+        <button type="button" class="btn btn-success" routerLink="/nuevaedu" *ngIf="isLogged">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr *ngFor="let educacionItem of educacion">
+                <td>
+                  <h5>{{ educacionItem.nombreE }}</h5>
+                </td>
+                <td>{{ educacionItem.descripcionE }}</td>
+                <td>
+                  <button class="btn btn-light" [routerLink]="'/editedu/' + educacionItem.id" *ngIf="isLogged">
+                    <i class="bi bi-pencil-fill"></i> EDITAR
+                  </button>
+                </td>
+                <td>
+                  <button class="btn btn-danger" (click)="delete(educacionItem.id)" *ngIf="isLogged">
+                    <i class="bi bi-trash-fill"></i> BORRAR
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

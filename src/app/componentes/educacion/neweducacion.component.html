@@ -1,0 +1,23 @@
+<body>
+  <div class="login-dark">
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+      <h2 class="sr-only">Login</h2>
+      <div class="illustration"><i class="fas fa-graduation-cap"></i></div>
+  
+      <div class="form-group">
+        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg"
+          [(ngModel)]="nombreE" required placeholder="Título" />
+        <div *ngIf="formSubmitted && !nombreE" class="text-danger">El título es requerido.</div>
+      </div>
+  
+      <div class="form-group">
+        <input type="text" id="descripcionE" name="descripcionE" class="form-control form-control-lg"
+          [(ngModel)]="descripcionE" required placeholder="Descripción" />
+        <div *ngIf="formSubmitted && !descripcionE" class="text-danger">La descripción es requerida.</div>
+      </div>
+  
+      <button class="btn btn-primary btn-block" type="submit">Agregar educación</button>
+    </form>
+  </div>
+  
+</body>

@@ -1,0 +1,52 @@
+/* etiqueta nombre*/
+/*
+#nombre {
+  font-weight: bold;
+}
+
+.row {    
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(130, 133, 136);
+}
+img{
+    padding: 25px;
+}
+h5{
+    padding-bottom: 25px;
+}*/
+.row{
+  padding: 20px;
+  background-color: rgb(80, 87, 90);
+  color: white;
+}
+div{
+  text-align: center;
+}
+/*Estilo de la foto de perfil*/
+@media (min-width: 576px){
+  #fotodeperfil{
+      position: absolute;
+      width: 15%;
+      border-radius: 100%;
+      box-shadow: 3px 3px 3px grey;
+      left: 3%;
+      top:590px;
+  }
+}
+@media (max-width: 575px){
+  #fotodeperfil{
+      position: absolute;
+      width: 30%;
+      border-radius: 100%;
+      box-shadow: 3px 3px 3px grey;
+      left: 33%;
+      top:670px;
+  }
+}
+
+/*etiqueta nombre*/
+#nombre{
+  font-weight: bold;
+  margin-top: 30%;
+}

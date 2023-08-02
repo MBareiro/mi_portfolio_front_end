@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled</title>
+</head>
+
+<body>
+  <div class="login-dark">
+    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+      <h2 class="sr-only">Login</h2>
+      <div class="illustration"><i class="fas fa-lock"></i></div>
+
+      <div class="form-group"> <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control
+        form-control-lg" [(ngModel)]="nombreUsuario" required placeholder="Usuario" /></div>
+      <div class="form-group"><input type="password" id="password" name="password" class="form-control form-control-lg"
+          [(ngModel)]="password" required placeholder="Password" /></div>
+      <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
+    </form>
+  </div>
+</body>
+
+</html>

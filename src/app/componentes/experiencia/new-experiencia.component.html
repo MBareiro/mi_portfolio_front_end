@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Experiencia</title>
+</head>
+
+<body>
+  <div class="login-dark">
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+      <h2 class="sr-only">Nueva Experiencia</h2>
+      <div class="illustration"><i class="fas fa-briefcase"></i></div>
+
+      <div class="form-group">
+        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" [(ngModel)]="nombreE"
+          required placeholder="Titulo" />
+        <div *ngIf="formSubmitted && !nombreE" class="text-danger">El título es requerido.</div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" id="descripcionE" name="descripcionE" class="form-control form-control-lg"
+          [(ngModel)]="descripcionE" required placeholder="Descripcion" />
+        <div *ngIf="formSubmitted && !descripcionE" class="text-danger">La descripción es requerida.</div>
+      </div>
+
+      <button class="btn btn-primary btn-block" type="submit">Guardar</button>
+    </form>
+  </div>
+</body>
+
+</html>
