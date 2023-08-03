@@ -56,7 +56,9 @@ export class EditSkillComponent implements OnInit {
       });
       return;
     }    
-    
+    if (this.imageService.url !== ""){
+      this.skill.img = this.imageService.url
+    }
     const id = this.activatedRouter.snapshot.params['id'];
     this.skillS.update(id, this.skill).subscribe(
       data => {
