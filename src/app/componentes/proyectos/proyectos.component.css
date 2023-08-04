@@ -18,3 +18,7 @@ section{
     transition: cursor 0.2s ease;
   }
   
+  .image-container{
+    padding-right: 10px; 
+    padding-left: 10px;
+  }

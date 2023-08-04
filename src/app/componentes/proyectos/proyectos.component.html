@@ -2,47 +2,48 @@
   <div class="container mt-5">
 
     <div class="row justify-content-center">
-      <div class="col-md-12 text-center">
+      <div class="col-12 text-center">
         <h1>Mis Proyectos</h1>
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-2 text-center  mb-3">
-        <button type="button" class="btn btn-success" routerLink="/newproject" *ngIf="isLogged">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-4 col-8 text-center">
+        <button type="button" class="btn btn-success" [routerLink]="'/newproject'" *ngIf="isLogged">
           Agregar
         </button>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-6" *ngFor="let project of projects">
-                
-        <div class="card my-3 card-hover card-clickable" >
-          <div class="card-body d-md-flex align-items-md-center">
-            <div class="image-container mr-md-4 mb-3 mb-md-0 text-center mx-auto">
-              <img src="{{ project.img }}" class="img-fluid" style="max-width: 128px; height: auto; margin-right: 10px;
-    margin-left: 10px;">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let project of projects">
+
+        <div class="card my-3 card-hover card-clickable">
+          <div class="card-body d-flex flex-column flex-md-row align-items-center">
+
+            <div class="image-container mb-3 mb-md-0 text-center" style="padding-right: 10px; padding-left: 10px;" >
+              <img [src]="project.img" class="img-fluid" alt="Imagen del Proyecto" style="width: 110px;">
             </div>
-            <div class="content-container flex-grow-1">
+
+            <div class="content-container mt-3 mt-md-0 flex-grow-1">
               <h5 class="card-title">{{ project.titulo }}</h5>
               <p class="card-text">{{ project.descripcion }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                
+                <div class="buttons-container mt-2">
+                  <a [href]="project.link" target="_blank" class="btn btn-success">Ver</a>
+                  <button class="btn btn-light mx-2" [routerLink]="'/editproject/' + project.id" *ngIf="isLogged">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger" (click)="delete(project.id)" *ngIf="project.id !== undefined && isLogged">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="buttons-container mt-3 d-flex justify-content-center" *ngIf="isLogged">
-              <button class="btn btn-light mx-2" [routerLink]="'/editproject/' + project.id">
-                <i class="fas fa-edit"></i> Editar
-              </button>
-              <button class="btn btn-danger mx-2" (click)="delete(project.id)" *ngIf="project.id !== undefined">
-                <i class="fas fa-trash-alt"></i> Eliminar
-              </button>
-              
-            </div>
+
           </div>
         </div>
-        
-        
-        
-        
 
       </div>
     </div>

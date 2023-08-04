@@ -13,6 +13,7 @@ export class NewProjectComponent {
   titulo: string = "";
   descripcion: string = "";
   img: string = "";
+  link: string = "";
   formSubmitted = false;
   selectedImage: File | null = null; // Variable para almacenar la imagen seleccionada
 
@@ -25,9 +26,7 @@ export class NewProjectComponent {
 
   uploadImage($event: any) {
     const id = this.activatedRouter.snapshot.params['id'];
-    console.log(id);
     const name = 'perfil_' + id;
-    console.log(name);
     this.imageService.uploadImage($event, name);
   }
 
@@ -48,7 +47,7 @@ export class NewProjectComponent {
       return;
     }
    
-    const project = new Project(this.titulo, this.descripcion, this.imageService.url);
+    const project = new Project(this.titulo, this.descripcion, this.imageService.url, this.link);
     this.projectS.save(project).subscribe(
       (data) => {
         Swal.fire({
@@ -81,7 +80,7 @@ export class NewProjectComponent {
   }
 
   isFormValid(): boolean {
-    return !!this.titulo && !!this.descripcion;
+    return !!this.titulo && !!this.descripcion && !!this.link;
   }
 }
 

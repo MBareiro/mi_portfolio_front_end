@@ -3,10 +3,12 @@ export class Project {
     titulo: string;
     descripcion: string;
     img: string;  
+    link: string; 
 
-    constructor(titulo: string = "", descripcion: string = "", img: string = ""){
+    constructor(titulo: string = "", descripcion: string = "", img: string = "", link: string = ""){
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.img = img;
+        this.link = link;
     }
 }

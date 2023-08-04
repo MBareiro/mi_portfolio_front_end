@@ -6,6 +6,17 @@ i.fa-brands.fa-instagram.fa-2xl:hover {
 }
 
 .list-group {
-  /*--bs-list-group-bg: transparent;*/
+  --bs-list-group-bg: transparent;
   --bs-list-group-border-color: transparent;
+}
+@media (max-width: 768px) {
+  .list-group {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .list-group-item {
+    margin: 5px 0;
+  }
+  
 }

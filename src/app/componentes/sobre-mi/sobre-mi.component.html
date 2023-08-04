@@ -36,13 +36,9 @@
           <h1>Acerca de mí</h1>
           <p>{{persona.descripcion}}</p>
       </span>
+      <button type="button" class="btn btn-success" routerLink="editsobremi/1" *ngIf="isLogged">
+        Editar
+      </button>
   </div>
   
 </div> 
-<div class="row">
-  <div class="col">
-    <button type="button" class="btn btn-success" routerLink="editsobremi/1" *ngIf="isLogged">
-      Editar
-    </button>
-  </div>   
-</div>

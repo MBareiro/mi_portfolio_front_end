@@ -15,42 +15,7 @@
         </div>
       </div>
 
-      <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let skill of skills">
-        <!-- <circle-progress
-          [radius]="90"
-          [title]="skill.nombre"
-          [titleColor]="'#212F3C'"
-          [showTitle]="true"
-          [showImage]="true"
-          [imageHeight]="60"
-          [imageWidth]="60"
-          [showUnits]="false"
-          [showSubtitle]="false"
-          [outerStrokeWidth]="16"
-          [innerStrokeWidth]="2"
-          [outerStrokeColor]="'#78C000'"
-          [innerStrokeColor]="'#C7E596'"
-          [animation]="true"
-          [animationDuration]="600"
-          [showInnerStroke]="false"
-          [showZeroOuterStroke]="false"
-          [backgroundColor]="'#78C000'"
-        >
-          <i class="fab fa-html5" style="font-size: 50px; color: #212f3c"></i>
-        </circle-progress>
-        -->
-        <!--  <div>
-          <td>
-            <button class="btn btn-light" routerLink="/editskill/{{ skill.id }}" *ngIf="isLogged">
-              <i class="fas fa-edit"></i>
-            </button>
-          </td>
-          <td>
-            <button class="btn btn-danger" (click)="delete(skill.id)" *ngIf="isLogged">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </td>
-        </div> -->
+      <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let skill of skills">     
 
         <div class="habilidad">
           <img class="imagen-habilidad" src="{{ skill.img }}" alt="HTML" />

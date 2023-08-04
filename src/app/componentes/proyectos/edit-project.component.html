@@ -23,6 +23,11 @@
       </div>
       <div *ngIf="formSubmitted && !project?.descripcion" class="text-danger">La descripcion es requerida.</div>
 
+      <div class="form-group"><input type="text" id="link" name="link" class="form-control form-control-lg"
+          [(ngModel)]="project.link" required placeholder="Link" />
+      </div>
+      <div *ngIf="formSubmitted && !project?.link" class="text-danger">El link es requerido.</div>
+
       <div class="form-group">
         <label for="img">Imagen</label>
         <input type="file" class="form-control" id="img" name="img" (change)="uploadImage($event)"

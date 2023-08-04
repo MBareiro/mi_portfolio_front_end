@@ -1,3 +1,16 @@
 header{
     background-color: #2a2a2a;
   }
+
+  @media (max-width: 768px) {
+    
+    
+    .container-fluid {
+      margin-top: 10px; /* Reducir el espacio en pantallas pequeñas */
+      justify-content: center;
+    }/* En tu archivo styles.css */
+
+
+
+
+  }
