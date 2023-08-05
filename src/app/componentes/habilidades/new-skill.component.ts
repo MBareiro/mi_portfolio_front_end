@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/models/skill';
 import { SkillService } from 'src/app/servicios/skill.service';
-
 import { ImageService } from 'src/app/servicios/image.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -10,12 +9,13 @@ import Swal from 'sweetalert2';
   templateUrl: './new-skill.component.html',
   styleUrls: ['./new-skill.component.css'],
 })
-export class NewSkillComponent implements OnInit {
-  nombre: string = "";;
-  img: string = "";;
+export class NewSkillComponent{
+  nombre: string = "";
+  img: string = "";
   formSubmitted = false;
 
-  constructor(private skillS: SkillService, 
+  constructor(
+    private skillS: SkillService, 
     private router: Router,
     private activatedRouter: ActivatedRoute,
     public imageService: ImageService) {}
@@ -24,9 +24,7 @@ export class NewSkillComponent implements OnInit {
 
   uploadImage($event: any) {
     const id = this.activatedRouter.snapshot.params['id'];
-    console.log(id);
     const name = 'perfil_' + id;
-    console.log(name);
     this.imageService.uploadImage($event, name);
   }
   onCreate(): void {
@@ -45,7 +43,7 @@ export class NewSkillComponent implements OnInit {
       });
       return;
     }
-    alert(this.imageService.url)
+
     const skill = new Skill(this.nombre, this.imageService.url);
     this.skillS.save(skill).subscribe(
       data => {
@@ -60,7 +58,7 @@ export class NewSkillComponent implements OnInit {
           confirmButtonText: 'Aceptar',
         });
         this.router.navigate(['']);
-      },
+      },      
       (err) => {
         Swal.fire({
           title: 'Ups!',

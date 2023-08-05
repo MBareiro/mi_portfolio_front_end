@@ -60,6 +60,7 @@ export class NewProjectComponent {
           confirmButtonColor: '#1e2833',
           confirmButtonText: 'Aceptar',
         });
+        this.imageService.url = "";
         this.router.navigate(['']);
       },
       (err) => {
