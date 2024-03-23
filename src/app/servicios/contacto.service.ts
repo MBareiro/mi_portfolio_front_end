@@ -1,21 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactoService {
-  mensajes: any[] = [];
+  URL = environment.URL ; // Reemplaza con la URL base de tu backend
 
-  enviarMensaje(nombre: string, email: string, mensaje: string) {
-    const mensajeEnviado = {
-      nombre: nombre,
-      email: email,
-      mensaje: mensaje
-    };
-    this.mensajes.push(mensajeEnviado);
-  }
+  constructor(private http: HttpClient) { }
 
-  obtenerMensajes(): any[] {
-    return this.mensajes;
+  enviarMensaje(mensaje: any): Observable<string> {
+    const url = `${this.URL}enviar-mensaje`;
+    return this.http.post<string>(url, mensaje);
   }
 }
